@@ -20,3 +20,7 @@ OPERADOR    -    DESCRIÇÃO
 AND              OPERADOR LÓGICO E
 OR               OPERADOR LÓGICO OU
 */
+
+-- COUNT
+SELECT COUNT(*) // COUNT(DISTINCT title)
+FROM tabela
