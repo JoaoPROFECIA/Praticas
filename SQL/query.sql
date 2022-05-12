@@ -24,3 +24,16 @@ OR               OPERADOR LÓGICO OU
 -- COUNT
 SELECT COUNT(*) // COUNT(DISTINCT title)
 FROM tabela
+
+-- TOP
+SELECT TOP 10 *
+FROM tabela
+
+-- ORDER BY
+SELECT coluna1,coluna2
+FROM tabela
+ORDER BY coluna1 asc/desc
+
+SELECT TOP 10 ProductID
+FROM Production.Product
+ORDER BY ListPrice desc
