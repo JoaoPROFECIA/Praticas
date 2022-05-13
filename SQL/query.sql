@@ -37,3 +37,13 @@ ORDER BY coluna1 asc/desc
 SELECT TOP 10 ProductID
 FROM Production.Product
 ORDER BY ListPrice desc
+
+--Between
+valor BETWEEN mínimo AND máximo
+
+--IN
+valor IN (valor1,valor2)
+color IN ('blue','red')
+valor IN (SELECT valor FROM nomeDaTabela)
+
+-- LIKE
