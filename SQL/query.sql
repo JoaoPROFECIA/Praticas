@@ -49,6 +49,6 @@ valor IN (SELECT valor FROM nomeDaTabela)
 -- LIKE
 Vamos dizer que vpcê quer encontrar uma pessoa 
 no banco de dados mas não se lembra do nome inteiro...
-SELECT *
-FROM person.person
-WHERE FirstName like 'ovi%'
+SELECT * FROM person.person
+WHERE FirstName like (começa em->) 'ovi%' 
+                  (ou termina em->) '%to'
