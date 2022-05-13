@@ -47,7 +47,7 @@ color IN ('blue','red')
 valor IN (SELECT valor FROM nomeDaTabela)
 
 -- LIKE
-Vamos dizer que vpcê quer encontrar uma pessoa 
+Vamos dizer que você quer encontrar uma pessoa 
 no banco de dados mas não se lembra do nome inteiro...
 SELECT * FROM person.person
 WHERE FirstName like (começa em->) 'ovi%' 
