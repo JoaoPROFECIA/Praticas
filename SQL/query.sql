@@ -52,3 +52,40 @@ no banco de dados mas não se lembra do nome inteiro...
 SELECT * FROM person.person
 WHERE FirstName like (começa em->) 'ovi%' 
                   (ou termina em->) '%to'
+
+-- MIN MAX SUM AVG
+
+-- GROUP BY
+Divide o resultado da sua pesquisa em grupos
+Para cada grupo que você aplicar uma função de agregação,
+por exeplo:
+    calcular a soma de itens
+    contar o número de itens naquele grupo
+
+SELECT coluna1,funcaoAgregacao(coluna2)
+FROM nomeDaTabela
+GROUP BY coluna1
+
+-- HAVING
+É basicamente muito usado em junção com o GROUP BY Para
+filtrar resultados de um agrupamento.
+
+De uma forma mais simples, é como um WHERE para dados 
+agrupados.
+
+SELECT coluna1,funcaoAgregacao(coluna2)
+FROM nomeDaTabela
+GROUP BY coluna1
+HAVING condicao
+
+A grande diferença entre HAVING e WHERE é que o GROUP BY
+é aplicado depois que os dados já foram agrupados, enquanto 
+o WHERE é aplicado antes dos dados serem agrupados.
+
+Vamos dizer que queremos saber quais  nomes no sistema tem 
+uma ocorrencia maior que 10 vezes:
+
+SELECT FirstName, COUNT(FirstName) as "Quantidade"
+FROM Person.Person
+GROUP BY FirstName
+HAVING COUNT(FirstName) > 10
