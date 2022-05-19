@@ -89,3 +89,42 @@ SELECT FirstName, COUNT(FirstName) as "Quantidade"
 FROM Person.Person
 GROUP BY FirstName
 HAVING COUNT(FirstName) > 10
+
+Quais produtos não estão trazendo em média no mínimo 1M em total 
+de vendas:
+
+SELECT ProductID, AVG(linetotal)
+FROM sales.SalesOrderDetail
+GROUP BY ProductID
+HAVING AVG(linetotal) < 1000000
+
+-- AS
+Serve para renomear, dar apelidos temporários para colunas, 
+durante um select ou agregação
+
+SELECT TOP 10 ListPrice as Preço / "Preço do produto"
+FROM Production.Product
+
+SELECT TOP 10 AVG(ListPrice) as Preço / "Preço Médio"
+FROM Production.Product
+
+Na pratica: 
+    SELECT TOP 10 FirstName as Nome, LastName as Sobrenome
+    FROM Person.Person
+
+    SELECT top 10 productNumber as "Número do Produto"
+    from Production.Product
+
+    SELECT unitprice as "Preço unitário" FROM Sales.SalesOrderDetail
+
+
+
+-- INNER JOIN
+Existem 3 tipos gerais de JOINs:
+    INNER JOIN, OUTER JOIN e SELF JOIN
+
+Na pratica:
+    SELECT pr.ListPrice, pr.Name, pc.Name
+    FROM Production.Product Pr
+    INNER JOIN Production.ProductSubcategory PC on 
+    PC.ProductSubcategoryID = pr.ProductSubcategoryID
