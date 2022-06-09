@@ -54,7 +54,7 @@ class Sistema_de_Votação:
         while True:
             print(self.values)
             print(self.votar)
-            return self.votar()
+            return self.votar
             
         
 tela = Sistema_de_Votação()
