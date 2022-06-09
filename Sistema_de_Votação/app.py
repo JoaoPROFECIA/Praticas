@@ -4,41 +4,58 @@ import os
 #  CONSTANTES
 VOTOS_BOLSONARO = 0
 VOTOS_LULA = 0
+values = 0
 
 class Sistema_de_Votação:
     def __init__(self):
-        #layout do sistema de votação
+        # layout do sistema de votação
         layout = [
             [sg.Text('Sistema de Votação')],
             [sg.Text('1 - Bolsonaro')],
             [sg.Text('2 - Lula')],
-            [sg.Text('Voto:'), sg.InputText()],
-            [sg.Button('Votar'),sg.Button('Sair')]
+            [sg.Text('Voto:', size=(25,0)),sg.Input(size=(10,0))],
+            [sg.Text(f'Votos Bolsonaro: {VOTOS_BOLSONARO}')],
+            [sg.Text(f'Votos Lula: {VOTOS_LULA}')],
+            [sg.Button('Enviar Dados'), sg.Button('Sair')]
         ]
-        # Janela
-        janela = sg.Window('Sistema de Votação',layout())
-        # Extrair evento e valores
-        self.button, self.values = janela.read()
-    def iniciar(self):
-        #janela do sistema de votação
-        self.janela = sg.Window('Sistema de Votação',layout)
+        # janela do sistema de votação
+        
+        janela = sg.Window('Sistema de Votação',layout=layout)
+        # extrair dados da janela
+        self.Button, self.values = janela.read()
+
+
+    def votar(self):
         while True:
-            #evento do sistema de votação
-            event, values = self.janela.read()
+            # evento do sistema de votação
             try:
-                if event == 'Voto':
-                #evento de votar
-                    if values[0] == '1':
+                if self.Button == 'Votar':
+                # evento de votar
+                    if values[0] == 1:
                         VOTOS_BOLSONARO += 1
-                    elif values[0] == '2':
+                        values.update(f'{VOTOS_BOLSONARO}') 
+                        return True
+                    elif values[0] == 2:
                         VOTOS_LULA += 1
+                        values.update(f'{VOTOS_LULA}') 
+                        return
                     else:
                         print('Voto inválido')
-                elif event == 'Sair':
-                    #evento de sair
+                        return values
+                elif self.Button == 'Sair':
+                    # evento de sair
                     break
             except:
                 print('Voto inválido')
+
+
+    def iniciar(self):
+        #janela do sistema de votação
+        while True:
+            print(self.values)
+            print(self.votar)
+            
+        
 tela = Sistema_de_Votação()
 tela.iniciar()
 
