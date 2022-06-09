@@ -4,7 +4,7 @@ import os
 #  CONSTANTES
 VOTOS_BOLSONARO = 0
 VOTOS_LULA = 0
-values = 0
+values = int(0)
 
 class Sistema_de_Votação:
     def __init__(self):
@@ -34,14 +34,14 @@ class Sistema_de_Votação:
                     if values[0] == 1:
                         VOTOS_BOLSONARO += 1
                         values.update(f'{VOTOS_BOLSONARO}') 
-                        return True
+                        
                     elif values[0] == 2:
                         VOTOS_LULA += 1
                         values.update(f'{VOTOS_LULA}') 
-                        return
+                        
                     else:
                         print('Voto inválido')
-                        return values
+                        
                 elif self.Button == 'Sair':
                     # evento de sair
                     break
@@ -54,6 +54,7 @@ class Sistema_de_Votação:
         while True:
             print(self.values)
             print(self.votar)
+            return self.votar()
             
         
 tela = Sistema_de_Votação()
