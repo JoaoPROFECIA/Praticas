@@ -9,20 +9,21 @@ values = int(0)
 class Sistema_de_Votação:
     def __init__(self):
         # layout do sistema de votação
+        
         layout = [
             [sg.Text('Sistema de Votação')],
-            [sg.Text('1 - Bolsonaro')],
-            [sg.Text('2 - Lula')],
+            [sg.Text('17 - Bolsonaro')],
+            [sg.Text('13 - Lula')],
             [sg.Text('Voto:', size=(25,0)),sg.Input(size=(10,0))],
             [sg.Text(f'Votos Bolsonaro: {VOTOS_BOLSONARO}')],
             [sg.Text(f'Votos Lula: {VOTOS_LULA}')],
             [sg.Button('Enviar Dados'), sg.Button('Sair')]
         ]
+
         # janela do sistema de votação
-        
-        janela = sg.Window('Sistema de Votação',layout=layout)
+        janela = sg.Window('Sistema de Votação').layout(layout)
         # extrair dados da janela
-        self.Button, self.values = janela.read()
+        self.button, self.values = janela.read()
 
 
     def votar(self):
@@ -31,17 +32,14 @@ class Sistema_de_Votação:
             try:
                 if self.Button == 'Votar':
                 # evento de votar
-                    if values[0] == 1:
+                    if values[0] == 17:                    
                         VOTOS_BOLSONARO += 1
-                        values.update(f'{VOTOS_BOLSONARO}') 
-                        
-                    elif values[0] == 2:
+                        return tela(self)
+                    elif values[0] == 13:
                         VOTOS_LULA += 1
-                        values.update(f'{VOTOS_LULA}') 
-                        
+                        return tela(self)
                     else:
                         print('Voto inválido')
-                        
                 elif self.Button == 'Sair':
                     # evento de sair
                     break
@@ -51,12 +49,8 @@ class Sistema_de_Votação:
 
     def iniciar(self):
         #janela do sistema de votação
-        while True:
-            print(self.values)
-            print(self.votar)
-            return self.votar
-            
-        
+        print(self.values)
+
 tela = Sistema_de_Votação()
 tela.iniciar()
 
