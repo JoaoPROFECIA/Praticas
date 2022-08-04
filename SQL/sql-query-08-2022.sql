@@ -343,3 +343,23 @@ Em média, qual é a quantidade(quantity) que cada produto é vendido na loja?
     FROM Sales.SalesOrderDetail
     Group by ProductID
 
+-- DESAFIO 18
+/*
+Quais foram as 10 vendas que no total tiveram os maiores valores de venda (linetotal) por produto, do maior para o menor?
+*/
+
+    SELECT TOP 10 ProductID, SUM(linetotal) as 'Soma'
+    FROM Sales.SalesOrderDetail
+    GROUP BY ProductID
+    ORDER BY SUM(linetotal) desc
+
+-- DESAFIO 19
+/*
+Quantos produtos e qual a quantidade média de produtos temos cadastrados nas ordens de serviço (WordOder), agrupados por productId?
+(Product.WordOrder)
+*/
+    SELECT ProductID, COUNT(productId) as 'Contagem',
+    AVG(OrderQty) as 'Media'
+    FROM Sales.SalesOrderDetail
+    GROUP BY ProductID
+
