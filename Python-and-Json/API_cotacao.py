@@ -1,4 +1,5 @@
 import requests
+import os
 
 # AwesomeAPI: https://docs.awesomeapi.com.br/api-de-moedas
 def cotacao():
@@ -7,6 +8,11 @@ def cotacao():
     requisicao
     
     requisicao.json()
+    
+    # salvar arquivo em formato json
+    with open('cotacao.json', 'w') as f:
+        f.write(requisicao.text)
+
 
     dic_requisicao = requisicao.json()
 
