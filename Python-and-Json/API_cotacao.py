@@ -7,8 +7,6 @@ import requests, os, json, time
 requisicao = requests.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL') #  requisita a API
 requisicao_json = requisicao.json() #  Converte para json
 
-#  salvar arquivo em formato json
-
 #  dict de cores 
 cor = {
         'verde': '\033[32m',
@@ -19,6 +17,7 @@ cor = {
         'limpa': '\033[m'
         }
 
+#  salvar arquivo em formato json
 BASE_DIR = os.path.dirname(os.path.abspath(__file__)) #  diretorio atual
 SAVE_TO = os.path.join(BASE_DIR, 'cotacao.json') #  diretorio e nome do arquivo
 
