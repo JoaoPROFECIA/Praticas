@@ -16,8 +16,6 @@ with open(SAVE_TO, 'w') as file: #  abre o arquivo
     json.dump(requisicao_json, file, indent=2) #  salva o arquivo
     print('Arquivo cotacao.json salvo com sucesso!') #  mensagem de sucesso
 
-dic_requisicao = requisicao_json #  cria um dicionario com a requisicao
-
 #  print(dic_requisicao['USDBRL']['name'],': R$',dic_requisicao['USDBRL']['bid'].replace('.',','))
 #  print(dic_requisicao['EURBRL']['name'],': R$',dic_requisicao['EURBRL']['bid'].replace('.',','))
 #  print(dic_requisicao['BTCBRL']['name'],': R$',dic_requisicao['BTCBRL']['bid'])
@@ -35,15 +33,15 @@ while True:
 
     if opcao == 1: 
         print('\n')
-        print('R$',dic_requisicao['USDBRL']['bid'].replace('.',',')) #  exibe o valor do dolar
+        print('R$',requisicao_json['USDBRL']['bid'].replace('.',',')) #  exibe o valor do dolar
 
     elif opcao == 2:
         print('\n')
-        print('R$',dic_requisicao['EURBRL']['bid'].replace('.',',')) #  exibe o valor do euro
+        print('R$',requisicao_json['EURBRL']['bid'].replace('.',',')) #  exibe o valor do euro
 
     elif opcao == 3:
         print('\n')
-        print('R$',dic_requisicao['BTCBRL']['bid'].replace('.',',')) #  exibe o valor do bitcoin
+        print('R$',requisicao_json['BTCBRL']['bid'].replace('.',',')) #  exibe o valor do bitcoin
 
     elif opcao == 4:
         print('\n')
