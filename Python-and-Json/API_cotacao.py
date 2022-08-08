@@ -1,5 +1,4 @@
 import requests
-import os
 
 # AwesomeAPI: https://docs.awesomeapi.com.br/api-de-moedas
 def cotacao():
