@@ -1,21 +1,45 @@
-import pyodbc
+import mysql.connector
 
-dados_conexao = (
-    "Driver={SQL Server};"
-    "Server=DESKTOP-F9TG7BE\SQLEXPRESS;"
-    "Database=PythonSQL"
-)
+# import pyodbc
+#
+# dados_conexao = (
+#     "Driver={SQL Server};"
+#     "Server=DESKTOP-F9TG7BE\SQLEXPRESS;"
+#     "Database=PythonSQL"
+# )
 
 
-conexao = pyodbc.connect(dados_conexao)
-print("Conexão Bom Sucedida")
-
-cursor = conexao.cursor()
+# conexao = pyodbc.connect(dados_conexao)
+# print("Conexão Bom Sucedida")
+#
+# cursor = conexao.cursor()
 
 
 # CRUD
 
+# Como conectar no Banco de Dados
 
+# pip install mysql-connector-python (para instalar o conector do MySQL)
+
+
+# Dados de conexão
+dados_con = (host="localhost", database="nome do banco de dados", user="root", password="senha do banco de dados")
+
+con = mysql.connector.connect(dados_con)  # Conectando no banco de dados
+
+if con.is_connected():  # Verificando se a conexão foi bem sucedida
+    db_info = con.get_server_info(),
+    print("Conexão bem sucedida. Versão: ", db_info)
+
+    cursor = con.cursor()
+    cursor.execute("select database();")  # executar comando SQL
+    linha = cursor.fetchone()  # pegar a primeira linha
+    print("Conectado ao banco de dados: ", linha)
+
+if con.is_connected():
+    cursor.close()
+    con.close()
+    print("Conexão encerrada")
 
 ######################
 
